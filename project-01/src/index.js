@@ -6,7 +6,7 @@
  */
 
 const { ApolloServer, gql } = require('apollo-server');
-const sessions = require('./data/sessions.json');
+const SessionAPI = require('./data-source/sessions');
 
 const typeDefs = gql`
 type Query {
@@ -21,18 +21,23 @@ type Query {
     room: String,
     day: String,
     format: String,
-    track: String,
+    track: String @deprecated(reason: "Too many session do not fit into a sigle track."),
     level: String
   }`
 
 const resolvers = {
   Query: {
-    sessions: () => {
-      return sessions;
+    sessions: (parent, args, { dataSources }, info) => {
+      return dataSources.SessionAPI.getSessions();
     }
   }
-}
-const server = new ApolloServer({ typeDefs, resolvers });
+};
+
+const dataSources = () => ({
+  SessionAPI: new SessionAPI()
+});
+
+const server = new ApolloServer({ typeDefs, resolvers, dataSources });
 
 server
   .listen()
