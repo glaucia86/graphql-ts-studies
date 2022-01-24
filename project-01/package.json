@@ -7,12 +7,20 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon src/index.js"
   },
-  "keywords": [],
+  "keywords": [
+    "apollo-server",
+    "apollo",
+    "apollo-datasource",
+    "nodejs",
+    "javascript",
+    "graphql"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "apollo-datasource": "^0.7.0",
     "apollo-server": "^2.25.3",
+    "lodash": "4.17",
     "nodemon": "^2.0.15"
   },
   "devDependencies": {
