@@ -2,15 +2,19 @@
   "name": "project-01",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apollo-server": "^3.6.2",
+    "apollo-server": "2.12",
     "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "eslint": "^8.7.0"
   }
 }
