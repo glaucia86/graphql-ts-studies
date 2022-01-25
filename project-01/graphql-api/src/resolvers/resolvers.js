@@ -5,19 +5,10 @@
  * author: Glaucia Lemos <@glaucia_lemos86>
  */
 
+const Query = require('./query-resolvers');
+const Session = require('./session-resolvers');
+
 module.exports = {
-  Query: {
-    sessions: (parent, args, { dataSources }, info) => {
-      return dataSources.sessionAPI.getSessions(args);
-    },
-    sessionById: (parent, { id }, { dataSources }, info) => {
-      return dataSources.sessionAPI.getSessionById(id);
-    },
-    speakers: (parent, args, { dataSources }, info) => {
-      return dataSources.speakerAPI.getSpeakers(args);
-    },
-    speakerById: (parent, { id }, { dataSources }, info) => {
-      return dataSources.speakerAPI.getSpeakerById(id);
-    },
-  },
+  Query,
+  Session,
 };
