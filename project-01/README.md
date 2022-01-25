@@ -1,6 +1,6 @@
-# Project 01 - Mini project using Apollo Server with Node.js
+# Project 01 - Building a GraphQL API with Apollo Server
 
-A simple project to create a RESTful API with Express and TypeScript. And then we'll use Swagger to document the API.
+A Pluralsight training how to use Apollo Server with Node.js. The main goal with this course is gives the necessary skills to implement GraphQL APIs with Node.js and Apollo.
 
 ## 🚀 Resources Used
 
