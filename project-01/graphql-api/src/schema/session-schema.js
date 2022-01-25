@@ -15,7 +15,7 @@ module.exports = gql`
       description: String
       startsAt: String
       endsAt: String
-      room: String
+      room: Room
       day: String
       format: String
       track: String
@@ -25,6 +25,13 @@ module.exports = gql`
     speakers: [Speaker]
     speakerById(id: ID): Speaker
   }
+
+  enum Room {
+    EUROPA
+    SOL
+    SATURN
+  }
+
   type Mutation {
     toggleFavoriteSession(id: ID): Session
     addNewSession(session: SessionInput): Session
