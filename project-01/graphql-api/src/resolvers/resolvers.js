@@ -7,8 +7,10 @@
 
 const Query = require('./query-resolvers');
 const Session = require('./session-resolvers');
+const Mutation = require('./mutation-resolvers');
 
 module.exports = {
   Query,
   Session,
+  Mutation,
 };
