@@ -7,11 +7,17 @@
 
 module.exports = {
   Query: {
-    sessions: (parent, args, { dataSources }, info) => {
+    sessions: (parent, args, { dataSources }) => {
       return dataSources.sessionAPI.getSessions(args);
     },
-    sessionById: (parent, { id }, { dataSources }, info) => {
+    sessionById: (parent, { id }, { dataSources }) => {
       return dataSources.sessionAPI.getSessionById(id);
     },
+    speakers: (parent, args, { dataSources }) => {
+      return dataSources.speakerAPI.getSpeakers(args);
+    },
+    speakersById: (parent, { id }, { dataSources }) => {
+      return dataSources.speakerAPI.getSpeakerById(id);
+    }
   },
 };
