@@ -19,7 +19,6 @@
   "license": "MIT",
   "dependencies": {
     "apollo-datasource": "^0.7.0",
-    "apollo-datasource-rest": "^0.9.3",
     "apollo-server": "^2.25.3",
     "lodash": "4.17",
     "nodemon": "^2.0.15"
