@@ -10,12 +10,20 @@ module.exports = {
     return dataSources.sessionAPI.getSessions(args);
   },
   sessionById: (parent, { id }, { dataSources }) => {
-    return dataSources.sessionAPI.getSessionById(id);
+    try {
+      return dataSources.sessionAPI.getSessionById(id);
+    } catch (error) {
+      return {
+        code: 'ERROR',
+        message: 'An error occured',
+        token: '13423rhrfhefewe',
+      };
+    }
   },
   speakers: (parent, args, { dataSources }) => {
     return dataSources.speakerAPI.getSpeakers(args);
   },
   speakerById: (parent, { id }, { dataSources }) => {
     return dataSources.speakerAPI.getSpeakerById(id);
-  }
+  },
 };

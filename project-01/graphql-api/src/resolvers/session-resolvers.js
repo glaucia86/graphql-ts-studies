@@ -5,8 +5,8 @@
  * author: Glaucia Lemos <@glaucia_lemos86>
  */
 
-const { ApolloError } = require('apollo-server');
 const _ = require('lodash');
+const { ApolloError } = require('apollo-server');
 
 module.exports = {
   async speakers(session, args, { dataSources }) {
@@ -18,7 +18,9 @@ module.exports = {
 
       return response;
     } catch (error) {
-      return new ApolloError('Unable to get speakers', 'SPEAKERAPIERROR', { token: 'UNIQUETOKEN' });
+      return new ApolloError('Unable to get speakers', 'SPEAKERAPIERROR', {
+        token: 'uniquetoken',
+      });
     }
   },
 };
