@@ -5,7 +5,7 @@
  * author: Glaucia Lemos <@glaucia_lemos86>
  */
 
-const { ApolloServer } = require('apollo-server');
+const { ApolloServer, ApolloError } = require('apollo-server');
 const SessionAPI = require('./data-sources/sessions');
 const SpeakerAPI = require('./data-sources/speakers');
 
@@ -21,6 +21,12 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   dataSources,
+  debug: false,
+  formatError: (err) => {
+    if (err.extensions.code === 'INTERNAL_SERVER_ERROR') {
+      return new ApolloError('We are having some trouble', 'ERROR', { token: 'uniquetoken' })
+    }
+  }
 });
 
 server.listen().then(({ url }) => {
