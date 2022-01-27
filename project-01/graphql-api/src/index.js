@@ -24,9 +24,12 @@ const server = new ApolloServer({
   debug: false,
   formatError: (err) => {
     if (err.extensions.code === 'INTERNAL_SERVER_ERROR') {
-      return new ApolloError('We are having some trouble', 'ERROR', { token: 'uniquetoken' })
+      return new ApolloError('We are having some trouble', 'ERROR', {
+        token: 'uniquetoken',
+      });
     }
-  }
+    return err;
+  },
 });
 
 server.listen().then(({ url }) => {
