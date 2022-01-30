@@ -15,7 +15,7 @@
     "javascript",
     "graphql"
   ],
-  "author": "",
+  "author": "Glaucia Lemos <Twitter: @glaucia_lemos86>",
   "license": "MIT",
   "dependencies": {
     "apollo-datasource": "^0.7.0",
