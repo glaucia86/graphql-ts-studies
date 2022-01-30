@@ -11,7 +11,7 @@ A real world projects with intention of studying a little bit more about GraphQL
 
 ## 💻 Projects Developed
 
-- ✅ **[Project-01](./project-01/README.md)**
+- ✅ **[Project-01](https://github.com/glaucia86/graphql-ts-studies/tree/main/project-01)**
 - ✅ **[Project-02 - TBI](./project-02/README.md)**
 - ✅ **[Project-03 - TBI](./project-03/README.md)**
 - ✅ **[Project-04 - TBI](./project-04/README.md)**
