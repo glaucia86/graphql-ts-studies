@@ -1,13 +1,13 @@
 # Project 02 -
 
-A Udemy training how to use GraphQL with Node.js/TypeScript. The main goal with this course is .
+A Udemy training **[The Modern GraphQL Bootcamp (with Node.js and Apollo)](https://www.udemy.com/course/graphql-bootcamp/)** how to use GraphQL with Node.js/TypeScript. The main goal with this course is to learn how to build a GraphQL applications using Node.js + Prisma + Apollo.
 
 ## 🚀 Resources Used
 
-- ✅ **[TypeScript](https://www.typescriptlang.org/download)**
 - ✅ **[Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=javascript-14034-gllemos)**
 - ✅ **[Node.js](https://nodejs.org/en/)**
 - ✅ **[Apollo Server](https://www.apollographql.com/docs/apollo-server/)**
+- ✅ **[Prisma](https://www.prisma.io/)**
 
 
 ## ❓ I have Issues... How should I do!
