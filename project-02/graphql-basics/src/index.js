@@ -10,28 +10,32 @@ import { GraphQLServer } from 'graphql-yoga';
 // ==> Type Definitions (schema) - onde definimos o nosso schema
 const typeDefs = `
   type Query {
-    hello: String!
-    name: String!
-    location: String!
-    bio: String!
+    title: String!
+    price: Float!
+    releaseYear: Int
+    rating: Float
+    inStock: Boolean!
   }
 `;
 
 // ==> Resolvers - onde declaramos funções relacionadas ao nosso schema
 const resolvers = {
   Query: {
-    hello() {
-      return 'This is my first query using GraphQL'
+    title() {
+      return 'MacBook Air Pro'
     },
-    name() {
-      return 'Glaucia Lemos'
+    price() {
+      return 1999.90
     },
-    location() {
-      return 'Rio de Janeiro - Brazil'
+    releaseYear() {
+      return 2022
     },
-    bio() {
-      return 'Cloud Advocate in JavaScript/TypeScript @ Microsoft'
-    }
+    rating() {
+      return 4.9
+    },
+    inStock() {
+      return true
+    },
   }
 }
 
