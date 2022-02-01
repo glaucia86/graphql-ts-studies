@@ -28,17 +28,20 @@ const posts = [{
   id: '1',
   title: 'Learn JavaScript',
   body: 'Become a Ninja in JavaScript in few months',
-  published: true
+  published: true,
+  author: '1'
 }, {
   id: '2',
   title: 'Learn TypeScript',
   body: 'Become a Ninja in TypeScript in few months',
-  published: false
+  published: false,
+  author: '1'
 }, {
   id: '3',
   title: 'Learn Node.Js',
   body: 'Become a Ninja in Node in few months',
-  published: true
+  published: true,
+  author: '2'
 }];
 
 // ==> Type Definitions (schema) - onde definimos o nosso schema
@@ -55,6 +58,7 @@ const typeDefs = `
     name: String!
     email: String!
     age: Int
+    posts: [Post!]!
   }
 
   type Post {
@@ -62,6 +66,7 @@ const typeDefs = `
     title: String!
     body: String!
     published: Boolean!
+    author: User!
   }
 `;
 
@@ -104,6 +109,18 @@ const resolvers = {
         body: 'A Handbook of Agile Software Craftsmanshipring',
         published: true
       }
+    }
+  },
+  Post: {
+    author(parent, args, ctx, info) {
+      //==> Relationsip btw User -> Post
+      return users.find((user => user.id === parent.author));
+    }
+  },
+  User: {
+    posts(parent, args, ctx, info) {
+      //==> Relationsip btw Post -> User
+      return posts.filter((post => post.author === parent.id));
     }
   }
 }
