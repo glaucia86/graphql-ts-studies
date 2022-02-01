@@ -44,11 +44,26 @@ const posts = [{
   author: '2'
 }];
 
+const comments = [{
+  id: '1',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+}, {
+  id: '2',
+  text: 'Integer efficitur sit amet justo ut viverra. Donec id sem nisi.'
+}, {
+  id: '3',
+  text: 'Aliquam condimentum diam lectus.'
+}, {
+  id: '4',
+  text: 'Nulla consectetur finibus lobortis. Praesent malesuada nibh eu congue faucibus.'
+}]
+
 // ==> Type Definitions (schema) - onde definimos o nosso schema
 const typeDefs = `
   type Query {
     users(query: String): [User!]!
     posts(query: String): [Post!]!
+    comments: [Comment!]!
     me: User!
     post: Post!
   }
@@ -67,6 +82,11 @@ const typeDefs = `
     body: String!
     published: Boolean!
     author: User!
+  }
+
+  type Comment {
+    id: ID!
+    text: String!
   }
 `;
 
@@ -93,6 +113,9 @@ const resolvers = {
 
         return isTitleMatch || isBodyMatch;
       });
+    },
+    comments(parent, args, ctx, info) {
+      return comments;
     },
     me() {
       return {
