@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
  * file: src/index.js
  * description: file responsible for connecting to the 'index.js' file
@@ -10,6 +11,8 @@ import { GraphQLServer } from 'graphql-yoga';
 // ==> Type Definitions (schema) - onde definimos o nosso schema
 const typeDefs = `
   type Query {
+    add(a: Float!, b: Float!): Float!
+    greeting(name: String, position: String): String!
     me: User!
     post: Post!
   }
@@ -32,6 +35,16 @@ const typeDefs = `
 // ==> Resolvers - onde declaramos funções relacionadas ao nosso schema
 const resolvers = {
   Query: {
+    add(parent, args, ctx, info) {
+      return args.a + args.b;
+    },
+    greeting(parent, args, ctx, info) {
+      if (args.name && args.position) {
+        return `Olá, ${args.name}! Você mora no ${args.position}`;
+      } else {
+        return 'Olá, Developer!';
+      }
+    },
     me() {
       return {
         id: '3232klkl',
