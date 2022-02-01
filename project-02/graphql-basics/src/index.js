@@ -8,12 +8,44 @@
 
 import { GraphQLServer } from 'graphql-yoga';
 
+// ==> Simulating a Database (demo purposes)
+const users = [{
+  id: '1',
+  name: 'Glaucia Lemos',
+  email: 'glaucia@example.com',
+  age: 35
+}, {
+  id: '2',
+  name: 'Jurema Lemos',
+  email: 'jurema@example.com',
+}, {
+  id: '3',
+  name: 'Prince',
+  email: 'prince@example.com',
+}];
+
+const posts = [{
+  id: '1',
+  title: 'Learn JavaScript',
+  body: 'Become a Ninja in JavaScript in few months',
+  published: true
+}, {
+  id: '2',
+  title: 'Learn TypeScript',
+  body: 'Become a Ninja in TypeScript in few months',
+  published: false
+}, {
+  id: '3',
+  title: 'Learn Node.Js',
+  body: 'Become a Ninja in Node in few months',
+  published: true
+}];
+
 // ==> Type Definitions (schema) - onde definimos o nosso schema
 const typeDefs = `
   type Query {
-    add(numbers: [Float]!): Float!
-    grades: [Int!]!
-    greeting(name: String, position: String): String!
+    users(query: String): [User!]!
+    posts(query: String): [Post!]!
     me: User!
     post: Post!
   }
@@ -36,25 +68,26 @@ const typeDefs = `
 // ==> Resolvers - onde declaramos funções relacionadas ao nosso schema
 const resolvers = {
   Query: {
-    add(parent, args, ctx, info) {
-      if (args.numbers.length === 0) {
-        return 0;
+    users(parent, args, ctx, info) {
+      if (!args.query) {
+        return users;
       }
 
-      // ==> reduce() [1, 5, 10, 2]
-      return args.numbers.reduce((accumulator, currentValue) => {
-        return accumulator + currentValue;
+      return users.filter((user) => {
+        return user.name.toLowerCase().includes(args.query.toLowerCase());
       });
     },
-    grades() {
-      return [40, 60, 90];
-    },
-    greeting(parent, args, ctx, info) {
-      if (args.name && args.position) {
-        return `Olá, ${args.name}! Você mora no ${args.position}`;
-      } else {
-        return 'Olá, Developer!';
+    posts(parent, args, ctx, info) {
+      if (!args.query) {
+        return posts;
       }
+
+      return posts.filter((post) => {
+        const isTitleMatch = post.title.toLowerCase().includes(args.query.toLowerCase());
+        const isBodyMatch = post.body.toLowerCase().includes(args.query.toLowerCase());
+
+        return isTitleMatch || isBodyMatch;
+      });
     },
     me() {
       return {
