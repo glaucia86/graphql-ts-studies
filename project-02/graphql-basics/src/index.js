@@ -47,19 +47,23 @@ const posts = [{
 const comments = [{
   id: '1',
   text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  author: '1'
+  author: '1',
+  post: '3'
 }, {
   id: '2',
   text: 'Integer efficitur sit amet justo ut viverra. Donec id sem nisi.',
-  author: '1'
+  author: '1',
+  post: '3'
 }, {
   id: '3',
   text: 'Aliquam condimentum diam lectus.',
-  author: '3'
+  author: '3',
+  post: '2'
 }, {
   id: '4',
   text: 'Nulla consectetur finibus lobortis. Praesent malesuada nibh eu congue faucibus.',
-  author: '2'
+  author: '2',
+  post: '1'
 }]
 
 // ==> Type Definitions (schema) - onde definimos o nosso schema
@@ -87,12 +91,14 @@ const typeDefs = `
     body: String!
     published: Boolean!
     author: User!
+    comments: [Comment!]!
   }
 
   type Comment {
     id: ID!
     text: String!
     author: User!
+    post: Post!
   }
 `;
 
@@ -144,12 +150,20 @@ const resolvers = {
     author(parent, args, ctx, info) {
       //==> Relationship btw User -> Post
       return users.find((user => user.id === parent.author));
+    },
+    comments(parent, args, ctx, info) {
+      //==> Relationship btw Comment -> Post
+      return comments.filter((comment => comment.post === parent.id));
     }
   },
   Comment: {
     //==> Relationship btw User -> Comment
     author(parent, args, ctx, info) {
       return users.find((user => user.id === parent.author));
+    },
+    post(parent, args, ctx, info) {
+      //==> Relationship btw Post -> Comment
+      return posts.find((post => post.id === parent.post));
     }
   },
   User: {
