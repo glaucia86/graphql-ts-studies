@@ -46,16 +46,20 @@ const posts = [{
 
 const comments = [{
   id: '1',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  author: '1'
 }, {
   id: '2',
-  text: 'Integer efficitur sit amet justo ut viverra. Donec id sem nisi.'
+  text: 'Integer efficitur sit amet justo ut viverra. Donec id sem nisi.',
+  author: '1'
 }, {
   id: '3',
-  text: 'Aliquam condimentum diam lectus.'
+  text: 'Aliquam condimentum diam lectus.',
+  author: '3'
 }, {
   id: '4',
-  text: 'Nulla consectetur finibus lobortis. Praesent malesuada nibh eu congue faucibus.'
+  text: 'Nulla consectetur finibus lobortis. Praesent malesuada nibh eu congue faucibus.',
+  author: '2'
 }]
 
 // ==> Type Definitions (schema) - onde definimos o nosso schema
@@ -74,6 +78,7 @@ const typeDefs = `
     email: String!
     age: Int
     posts: [Post!]!
+    comments: [Comment!]!
   }
 
   type Post {
@@ -87,6 +92,7 @@ const typeDefs = `
   type Comment {
     id: ID!
     text: String!
+    author: User!
   }
 `;
 
@@ -136,14 +142,24 @@ const resolvers = {
   },
   Post: {
     author(parent, args, ctx, info) {
-      //==> Relationsip btw User -> Post
+      //==> Relationship btw User -> Post
+      return users.find((user => user.id === parent.author));
+    }
+  },
+  Comment: {
+    //==> Relationship btw User -> Comment
+    author(parent, args, ctx, info) {
       return users.find((user => user.id === parent.author));
     }
   },
   User: {
     posts(parent, args, ctx, info) {
-      //==> Relationsip btw Post -> User
+      //==> Relationship btw Post -> User
       return posts.filter((post => post.author === parent.id));
+    },
+    comments(parent, args, ctx, info) {
+      //==> Relationship btw Comment -> User
+      return comments.filter((comment => comment.author === parent.id));
     }
   }
 }
@@ -154,5 +170,5 @@ const server = new GraphQLServer({
 });
 
 server.start(() => {
-  console.log('Server is now up and running at http://localhost:4000')
+  console.log('Server is now up and running at http://localhost:4000');
 });
