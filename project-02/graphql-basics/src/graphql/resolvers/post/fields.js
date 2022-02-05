@@ -1,6 +1,6 @@
 /**
- * file:
- * description:
+ * file: src/graphql/resolvers/post/fields.js
+ * description: file responsible for the 'Post' resolver.
  * date: 02/05/2022
  * author: Glaucia Lemos <@glaucia_lemos86>
  */

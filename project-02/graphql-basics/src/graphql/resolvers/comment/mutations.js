@@ -1,6 +1,6 @@
 /**
- * file:
- * description:
+ * file: src/graphql/resolvers/comment/mutations.js
+ * description: file responsible for the 'CRUD' related with 'Comment'.
  * date: 02/05/2022
  * author: Glaucia Lemos <@glaucia_lemos86>
  */
@@ -26,7 +26,6 @@ const commentMutations = {
   },
 
   deleteComment: (parent, args, { db }, info) => {
-    // author: User! post: Post!
     const commentIndex = db.comments.findIndex((comment) => comment.id === args.id);
 
     if (commentIndex === -1) {

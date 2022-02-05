@@ -1,6 +1,6 @@
 /**
- * file:
- * description:
+ * file: src/graphql/schema.js
+ * description: file responsible for joining all the 'typeDefs' and 'resolvers' files.
  * date: 02/05/2022
  * author: Glaucia Lemos <@glaucia_lemos86>
  */

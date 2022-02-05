@@ -1,6 +1,6 @@
 /**
- * file:
- * description:
+ * file: src/graphql/resolvers/post/mutations.js
+ * description: file responsible for the 'CRUD' related with 'Post'.
  * date: 02/05/2022
  * author: Glaucia Lemos <@glaucia_lemos86>
  */

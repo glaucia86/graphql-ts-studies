@@ -1,6 +1,6 @@
 /**
- * file:
- * description:
+ * file: src/graphql/resolvers/index.js
+ * description: file responsible for execute all the resolvers in the application.
  * date: 02/05/2022
  * author: Glaucia Lemos <@glaucia_lemos86>
  */

@@ -1,6 +1,6 @@
 /**
- * file:
- * description: file responsible for the 'CRUD' related with Mutate User.
+ * file: src/graphql/resolvers/user/mutations.js
+ * description: file responsible for the 'CRUD' related with 'User'.
  * date: 02/05/2022
  * author: Glaucia Lemos <@glaucia_lemos86>
  */

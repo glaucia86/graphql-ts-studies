@@ -1,5 +1,5 @@
 /**
- * file:
+ * file: src/graphql/resolvers/user/fields.js
  * description: file responsible for the 'User' resolver.
  * date: 02/05/2022
  * author: Glaucia Lemos <@glaucia_lemos86>

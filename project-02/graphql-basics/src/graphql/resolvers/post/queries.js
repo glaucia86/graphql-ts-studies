@@ -1,6 +1,6 @@
 /**
- * file:
- * description:
+ * file: src/graphql/resolvers/post/queries.js
+ * description: file responsible for return all queries related with 'Post'
  * date: 02/05/2022
  * author: Glaucia Lemos <@glaucia_lemos86>
  */

@@ -1,7 +1,7 @@
 /**
  * file: src/index.js
- * description: file responsible for connecting to the 'index.js' file
- * date: 01/30/2022
+ * description: file responsible to execute the application
+ * date: 02/04/2022
  * author: Glaucia Lemos <@glaucia_lemos86>
  */
 

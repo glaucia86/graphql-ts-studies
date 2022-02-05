@@ -1,4 +1,4 @@
-# Project 02 -
+# Project 02 - Building a Back-End Application using Apollo Server & GraphQL
 
 A Udemy training **[The Modern GraphQL Bootcamp (with Node.js and Apollo)](https://www.udemy.com/course/graphql-bootcamp/)** how to use GraphQL with Node.js/TypeScript. The main goal with this course is to learn how to build a GraphQL applications using Node.js + Prisma + Apollo.
 
