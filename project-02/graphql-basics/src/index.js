@@ -8,21 +8,10 @@
 
 import { GraphQLServer } from 'graphql-yoga';
 import db from './data/db';
-import Query from './resolvers/query-resolver/Query';
-import Mutation from './resolvers/mutation-resolver/Mutation';
-// import User from './resolvers/user-resolver/User';
-import Post from './resolvers/post-resolver/Post';
-import Comment from './resolvers/comment-resolver/Comment';
+import schema from './graphql/schema';
 
 const server = new GraphQLServer({
-  typeDefs: './src/schema/schema.graphql',
-  resolvers: {
-    Query,
-    Mutation,
-    // User,
-    Post,
-    Comment,
-  },
+  schema,
   context: {
     db: db,
   },
