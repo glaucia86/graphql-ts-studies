@@ -24,37 +24,7 @@ const Mutation = {
     db.users.push(user);
     return user;
   },
-  createPost(parent, args, { db }, info) {
-    const userExists = db.users.some((user) => user.id === args.data.author);
 
-    if (!userExists) {
-      throw new Error('User not found.');
-    }
-
-    const post = {
-      id: uuidv4(),
-      ...args.data
-    }
-
-    db.posts.push(post);
-    return post;
-  },
-  createComment(parent, args, { db }, info) {
-    const userExists = db.users.some((user) => user.id === args.data.author);
-    const postExists = db.posts.some((post) => post.id === args.data.post && post.published);
-
-    if(!userExists || !postExists) {
-      throw new Error('Unable to find User and Post.')
-    }
-
-    const comment = {
-      id: uuidv4(),
-      ...args.data
-    }
-
-    db.comments.push(comment);
-    return comment;
-  },
   deleteUser(parent, args, { db }, info) {
     const userIndex = db.users.findIndex((user) => user.id === args.id);
 
@@ -78,6 +48,52 @@ const Mutation = {
 
     return deletedUsers[0];
   },
+
+  updateUser (parent, args, { db }, info) {
+    const { id, data } = args;
+    const user = db.users.find((user) => user.id === id);
+
+    if(!user) {
+      throw new Error('User not found');
+    }
+
+    if (typeof data.email === 'string') {
+      const emailTaken = db.users.some((user) => user.email === data.email);
+
+      if (emailTaken) {
+        throw new Error('Email taken');
+      }
+
+      user.email = data.email;
+    }
+
+    if (typeof data.name === 'string') {
+      user.name = data.name;
+    }
+
+    if (typeof data.age !== 'undefined') {
+      user.age = data.age;
+    }
+
+    return user;
+  },
+
+  createPost(parent, args, { db }, info) {
+    const userExists = db.users.some((user) => user.id === args.data.author);
+
+    if (!userExists) {
+      throw new Error('User not found.');
+    }
+
+    const post = {
+      id: uuidv4(),
+      ...args.data
+    }
+
+    db.posts.push(post);
+    return post;
+  },
+
   deletePost(parent, args, { db }, info) {
     const postIndex = db.posts.findIndex((post) => post.id === args.id);
 
@@ -91,6 +107,24 @@ const Mutation = {
 
     return deletedPosts[0];
   },
+
+  createComment(parent, args, { db }, info) {
+    const userExists = db.users.some((user) => user.id === args.data.author);
+    const postExists = db.posts.some((post) => post.id === args.data.post && post.published);
+
+    if(!userExists || !postExists) {
+      throw new Error('Unable to find User and Post.')
+    }
+
+    const comment = {
+      id: uuidv4(),
+      ...args.data
+    }
+
+    db.comments.push(comment);
+    return comment;
+  },
+
   deleteComment(parent, args, { db }, info) {
     // author: User! post: Post!
     const commentIndex = db.comments.findIndex((comment) => comment.id === args.id);
