@@ -1,0 +1,29 @@
+type Query {
+  # Users
+  users(query: String): [User!]!
+  me: User!
+
+  # Posts
+  posts(query: String): [Post!]!
+  post: Post!
+
+  # Comments
+  comments: [Comment!]!
+}
+
+type Mutation {
+  # User
+  createUser(data: CreateUserInput!): User!
+  updateUser(id: ID!, data: UpdateUserInput!): User!
+  deleteUser(id: ID!): User!
+
+  # Post
+  createPost(data: CreatePostInput!): Post!
+  updatePost(id: ID!, data: UpdatePostInput!): Post!
+  deletePost(id: ID!): Post!
+
+  # Comment
+  createComment(data: CreateCommentInput!): Comment!
+  updateComment(id: ID!, data: UpdateCommentInput!): Comment!
+  deleteComment(id: ID!): Comment!
+}

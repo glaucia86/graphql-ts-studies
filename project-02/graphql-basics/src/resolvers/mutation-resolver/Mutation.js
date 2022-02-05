@@ -6,14 +6,9 @@
  */
 
 import { createComment, deleteComment, updateComment } from './mutate-comment';
-import { createUser, deleteUser, updateUser } from './mutate-user';
 import { createPost, updatePost, deletePost } from './mutate-post';
 
 const Mutation = {
-  createUser,
-  deleteUser,
-  updateUser,
-
   createPost,
   updatePost,
   deletePost,
