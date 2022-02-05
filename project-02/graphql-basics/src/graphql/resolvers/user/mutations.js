@@ -8,7 +8,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
 const userMutations = {
-  createUser = (parent, args, { db }, info) => {
+  createUser: (parent, args, { db }, info) => {
     const emailTaken = db.users.some((user) => user.email === args.data.email);
 
     if (emailTaken) {
@@ -24,7 +24,7 @@ const userMutations = {
     return user;
   },
 
-  deleteUser = (parent, args, { db }, info) => {
+  deleteUser: (parent, args, { db }, info) => {
     const userIndex = db.users.findIndex((user) => user.id === args.id);
 
     if (userIndex === -1) {
@@ -48,7 +48,7 @@ const userMutations = {
     return deletedUsers[0];
   },
 
-  updateUser = (parent, args, { db }, info) => {
+  updateUser: (parent, args, { db }, info) => {
     const { id, data } = args;
     const user = db.users.find((user) => user.id === id);
 

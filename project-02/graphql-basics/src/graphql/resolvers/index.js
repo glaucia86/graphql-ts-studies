@@ -6,17 +6,20 @@
  */
 
 import { userQueries, userMutations, userFields } from './user';
+import { postQueries, postMutations, postFields } from './post';
 
 const resolvers = {
   Query: {
     ...userQueries,
+    ...postQueries,
   },
 
   Mutation: {
     ...userMutations,
+    ...postMutations,
   },
   ...userFields,
-
+  ...postFields,
 };
 
 export default resolvers;
