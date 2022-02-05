@@ -1,0 +1,157 @@
+# GET ALL POSTS
+query {
+  posts {
+    id
+    title
+    author {
+      name
+    }
+  }
+}
+
+# GET ALL USERS
+query {
+  users {
+    id
+    name
+    email
+    age
+    posts {
+      id title
+    }
+  }
+}
+
+# GET ALL COMMENTS
+query {
+  comments {
+    id
+    text
+    author {
+      name
+    }
+    post {
+      title
+    }
+  }
+}
+
+# MUTATION - createUser
+mutation {
+  createUser(
+    data: {
+      name: "Jurema Lemos",
+      email: "jurema@gmail.com",
+      age: 69
+    }
+  ) {
+    id
+    name
+    email
+    age
+  }
+}
+
+# MUTATION - createPost
+mutation {
+  createPost(
+    data: {
+      title: "Learn about Azure using Node.js!",
+      body: "In this article you will learn how you can use Azure with Node.js!",
+      published: false,
+      author: "2"
+    }
+  ) {
+    id
+    title
+    body
+    published
+    author {
+      name
+    }
+    comments {
+      id
+    }
+  }
+}
+
+# MUTATION createComment
+mutation {
+  createComment(data: {
+    text: "Awesome article!",
+    author: "1",
+    post: "2"
+  }) {
+    id
+    text
+    author {
+      name
+    }
+    post {
+      title
+    }
+  }
+}
+
+# MUTATION - deleteUser
+mutation {
+  deleteUser(id: "1") {
+    id
+  }
+}
+
+# MUTATION - deletePost
+mutation {
+  deletePost(id: "1") {
+    id
+  }
+}
+
+# MUTATION - deleteComment
+mutation {
+  deleteComment(id: "1") {
+    id
+  }
+}
+
+# MUTATION - updateUser
+mutation {
+  updateUser(
+    id: "1",
+    data: {
+      email: "jurema@example.com"
+    }) {
+      id
+      name
+      email
+      age
+    }
+}
+
+# MUTATION updatePost
+mutation {
+  updatePost(
+    id: "2",
+    data: {
+      title: "GraphQL Ninja",
+      body: "Studying GraphQL to be a QL Ninja!",
+      published: true
+    }) {
+    id
+    title
+    body
+    published
+  }
+}
+
+# MUTATION updateComment
+mutation {
+  updateComment(
+    id: "2",
+    data: {
+      text: "Hello, World GraphQL!"
+    }) {
+      id
+      text
+    }
+}

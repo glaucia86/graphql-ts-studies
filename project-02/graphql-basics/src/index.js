@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /**
  * file: src/index.js
  * description: file responsible for connecting to the 'index.js' file
@@ -6,17 +5,18 @@
  * author: Glaucia Lemos <@glaucia_lemos86>
  */
 
-import { GraphQLServer } from 'graphql-yoga';
+import { ApolloServer } from 'apollo-server';
 import db from './data/db';
 import schema from './graphql/schema';
 
-const server = new GraphQLServer({
+const server = new ApolloServer({
   schema,
   context: {
     db: db,
   },
 });
 
-server.start(() => {
-  console.log('Server is now up and running at http://localhost:4000');
+server.listen().then(({ url }) => {
+  console.log(url);
 });
+
