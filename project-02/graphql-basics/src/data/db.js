@@ -31,7 +31,7 @@ const posts = [{
   title: 'Learn TypeScript',
   body: 'Become a Ninja in TypeScript in few months',
   published: true,
-  author: '1'
+  author: '3'
 }, {
   id: '3',
   title: 'Learn Node.Js',

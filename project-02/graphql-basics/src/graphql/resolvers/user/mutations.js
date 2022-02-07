@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
  * file: src/graphql/resolvers/user/mutations.js
  * description: file responsible for the 'CRUD' related with 'User'.

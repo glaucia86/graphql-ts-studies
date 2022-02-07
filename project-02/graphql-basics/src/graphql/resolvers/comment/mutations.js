@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
  * file: src/graphql/resolvers/comment/mutations.js
  * description: file responsible for the 'CRUD' related with 'Comment'.

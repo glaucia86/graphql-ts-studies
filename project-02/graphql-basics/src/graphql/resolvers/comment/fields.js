@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
  * file: src/graphql/resolvers/comment/fields.js
  * description: file responsible for the 'Comment' resolver.

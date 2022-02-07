@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
  * file: src/graphql/resolvers/user/fields.js
  * description: file responsible for the 'User' resolver.

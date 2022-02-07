@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
  * file: src/graphql/resolvers/post/fields.js
  * description: file responsible for the 'Post' resolver.

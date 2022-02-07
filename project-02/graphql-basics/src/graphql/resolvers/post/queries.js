@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
  * file: src/graphql/resolvers/post/queries.js
  * description: file responsible for return all queries related with 'Post'

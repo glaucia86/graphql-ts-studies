@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
  * file: src/graphql/resolvers/comment/queries.js
  * description: file responsible for return all queries related with 'Comment'
