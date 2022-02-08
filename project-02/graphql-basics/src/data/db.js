@@ -1,8 +1,8 @@
 /**
  * file: src/data/db.js
- * description:
+ * description: file responsible to simulate a database (fake database)
  * date: 02/04/2022
- * author: Glaucia Lemos <@glaucia_lemos86>
+ * author: Glaucia Lemos <Twitter: @glaucia_lemos86>
  */
 
 const users = [{

@@ -3,7 +3,7 @@
  * file: src/graphql/resolvers/post/mutations.js
  * description: file responsible for the 'CRUD' related with 'Post'.
  * date: 02/05/2022
- * author: Glaucia Lemos <@glaucia_lemos86>
+ * author: Glaucia Lemos <Twitter: @glaucia_lemos86>
  */
 
 import { v4 as uuidv4 } from 'uuid';

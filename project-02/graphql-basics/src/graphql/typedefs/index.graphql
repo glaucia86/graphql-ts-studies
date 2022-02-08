@@ -1,29 +1,33 @@
 type Query {
-  # Users
+  # Query - Users
   users(query: String): [User!]!
   me: User!
 
-  # Posts
+  # Query - Posts
   posts(query: String): [Post!]!
   post: Post!
 
-  # Comments
+  # Query - Comments
   comments: [Comment!]!
 }
 
 type Mutation {
-  # User
+  # Mutation - User
   createUser(data: CreateUserInput!): User!
   updateUser(id: ID!, data: UpdateUserInput!): User!
   deleteUser(id: ID!): User!
 
-  # Post
+  # Mutation - Post
   createPost(data: CreatePostInput!): Post!
   updatePost(id: ID!, data: UpdatePostInput!): Post!
   deletePost(id: ID!): Post!
 
-  # Comment
+  # Mutation - Comment
   createComment(data: CreateCommentInput!): Comment!
   updateComment(id: ID!, data: UpdateCommentInput!): Comment!
   deleteComment(id: ID!): Comment!
+}
+
+type Subscription {
+  count: Int!
 }

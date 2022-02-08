@@ -3,7 +3,7 @@
  * file: src/graphql/resolvers/comment/fields.js
  * description: file responsible for the 'Comment' resolver.
  * date: 02/05/2022
- * author: Glaucia Lemos <@glaucia_lemos86>
+ * author: Glaucia Lemos <Twitter: @glaucia_lemos86>
  */
 
 const commentFields = {

@@ -1,8 +1,9 @@
+/* eslint-disable no-undef */
 /**
  * file: src/graphql/schema.js
  * description: file responsible for joining all the 'typeDefs' and 'resolvers' files.
  * date: 02/05/2022
- * author: Glaucia Lemos <@glaucia_lemos86>
+ * author: Glaucia Lemos <Twitter: @glaucia_lemos86>
  */
 
 import { join } from 'path';

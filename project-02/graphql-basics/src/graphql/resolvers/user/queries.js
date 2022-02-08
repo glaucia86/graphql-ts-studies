@@ -3,7 +3,7 @@
  * file: src/graphql/resolvers/user/queries.js
  * description: file responsible for return all queries related with 'User'
  * date: 02/05/2022
- * author: Glaucia Lemos <@glaucia_lemos86>
+ * author: Glaucia Lemos <Twitter: @glaucia_lemos86>
  */
 
 const userQueries = {
