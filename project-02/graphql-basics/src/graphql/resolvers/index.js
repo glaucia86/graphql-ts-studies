@@ -8,6 +8,7 @@
 import { userQueries, userMutations, userFields } from './user';
 import { postQueries, postMutations, postFields } from './post';
 import { commentQueries, commentMutations, commentFields } from './comment';
+import Subscription from './subscriptions';
 
 const resolvers = {
   Query: {
@@ -21,6 +22,7 @@ const resolvers = {
     ...postMutations,
     ...commentMutations,
   },
+  Subscription,
   ...userFields,
   ...postFields,
   ...commentFields,

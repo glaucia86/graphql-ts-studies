@@ -2,9 +2,9 @@
   "name": "graphql-basics",
   "version": "1.0.0",
   "description": "a little application to study GraphQL with Node.js",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "babel-node ./server.js",
+    "start": "babel-node ./src/index.js",
     "dev": "nodemon --ext js,graphql --exec npm start"
   },
   "keywords": [

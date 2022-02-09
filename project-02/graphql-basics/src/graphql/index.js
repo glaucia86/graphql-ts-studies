@@ -6,17 +6,19 @@
  * author: Glaucia Lemos <Twitter: @glaucia_lemos86>
  */
 
-import { ApolloServer } from 'apollo-server-express';
+import { ApolloServer, PubSub } from 'apollo-server-express';
 import { env } from '../config/environment/index';
 import db from '../data/db';
 import schema from './schema';
 
+const pubsub = new PubSub();
 
 const apolloServer = new ApolloServer({
   schema,
   playground: env.development,
   context: {
     db: db,
+    pubsub
   },
 });
 
