@@ -7,25 +7,28 @@
 
 import { userQueries, userMutations, userFields } from './user';
 import { postQueries, postMutations, postFields } from './post';
-import { commentQueries, commentMutations, commentFields } from './comment';
-import Subscription from './subscriptions';
+import { commentQueries, commentMutations, commentFields, commentSubscriptions } from './comment';
 
 const resolvers = {
   Query: {
     ...userQueries,
     ...postQueries,
-    ...commentQueries,
+    ...commentQueries
   },
 
   Mutation: {
     ...userMutations,
     ...postMutations,
-    ...commentMutations,
+    ...commentMutations
   },
-  Subscription,
+
+  Subscription: {
+    ...commentSubscriptions
+  },
+
   ...userFields,
   ...postFields,
-  ...commentFields,
+  ...commentFields
 };
 
 export default resolvers;
