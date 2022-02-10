@@ -128,7 +128,7 @@ mutation {
     }
 }
 
-# MUTATION updatePost
+# MUTATION - updatePost
 mutation {
   updatePost(
     id: "2",
@@ -144,7 +144,7 @@ mutation {
   }
 }
 
-# MUTATION updateComment
+# MUTATION - updateComment
 mutation {
   updateComment(
     id: "2",
@@ -154,4 +154,28 @@ mutation {
       id
       text
     }
+}
+
+# SUBSCRIPTION - comment (just for true published posts)
+subscription {
+  comment(postId:"2") {
+    id text
+    author {
+      id
+      name
+    }
+  }
+}
+
+# SUBSCRIPTION - post  (just for true published posts)
+subscription {
+  post {
+    id
+    title
+    body
+    author {
+      id
+      name
+    }
+  }
 }
