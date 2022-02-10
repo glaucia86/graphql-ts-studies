@@ -6,6 +6,11 @@ type Comment {
   post: Post!
 }
 
+type CommentSubscriptionPayload {
+  mutation: String!
+  data: Comment!
+}
+
 # Inputs
 input CreateCommentInput {
   text: String!
