@@ -9,7 +9,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
 const postMutations = {
-  createPost: (parent, args, { db }, info) => {
+  createPost: (parent, args, { db, pubsub }, info) => {
     const userExists = db.users.some((user) => user.id === args.data.author);
     if (!userExists) {
       throw new Error('User not found.');
@@ -21,6 +21,11 @@ const postMutations = {
     }
 
     db.posts.push(post);
+
+    if (args.data.author) {
+      pubsub.publish('post', { post });
+    }
+
     return post;
   },
 
