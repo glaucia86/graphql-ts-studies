@@ -28,6 +28,12 @@ type Mutation {
   deleteComment(id: ID!): Comment!
 }
 
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
 type Subscription {
   comment(postId: ID!): CommentSubscriptionPayload!
   post: PostSubscriptionPayload!

@@ -9,7 +9,7 @@ type Post {
 }
 
 type PostSubscriptionPayload {
-  mutation: String!
+  mutation: MutationType!
   data: Post!
 }
 

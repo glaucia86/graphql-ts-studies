@@ -7,7 +7,7 @@ type Comment {
 }
 
 type CommentSubscriptionPayload {
-  mutation: String!
+  mutation: MutationType!
   data: Comment!
 }
 
