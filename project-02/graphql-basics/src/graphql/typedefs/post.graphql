@@ -8,6 +8,11 @@ type Post {
   comments: [Comment!]!
 }
 
+type PostSubscriptionPayload {
+  mutation: String!
+  data: Post!
+}
+
 # Inputs
 input CreatePostInput {
   title: String!
