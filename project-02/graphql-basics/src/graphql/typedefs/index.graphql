@@ -29,7 +29,6 @@ type Mutation {
 }
 
 type Subscription {
-  count: Int!
   comment(postId: ID!): Comment!
   post: Post!
 }
