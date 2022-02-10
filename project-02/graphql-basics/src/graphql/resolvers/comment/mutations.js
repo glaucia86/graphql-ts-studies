@@ -9,7 +9,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
 const commentMutations = {
-  createComment: (parent, args, { db }, info) => {
+  createComment: (parent, args, { db, pubsub }, info) => {
     const userExists = db.users.some((user) => user.id === args.data.author);
     const postExists = db.posts.some((post) => post.id === args.data.post && post.published);
 
@@ -23,6 +23,9 @@ const commentMutations = {
     }
 
     db.comments.push(comment);
+
+    pubsub.publish(`comment ${args.data.post}`, { comment });
+
     return comment;
   },
 

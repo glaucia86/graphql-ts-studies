@@ -1,7 +1,6 @@
 /**
  * file: src/graphql/index.js
- * description: file responsible to execute the Apollo Server Express package. Including
- * also (resolvers/typedefs) and db.
+ * description: file responsible to configure the Apollo Server Express.
  * date: 02/07/2022
  * author: Glaucia Lemos <Twitter: @glaucia_lemos86>
  */
