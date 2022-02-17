@@ -1,0 +1,7 @@
+# Get Products (name, image)
+query Product {
+  products {
+    name
+    image
+  }
+}

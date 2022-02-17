@@ -100,6 +100,7 @@ const typeDefs = gql`
   type Product {
     name: String!
     description: String!
+    image: String!
     quantity: Int!
     price: Float!
     onSale: Boolean!
