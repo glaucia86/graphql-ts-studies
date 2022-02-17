@@ -5,3 +5,13 @@ query Product {
     image
   }
 }
+
+# Get Product by Id
+query GetProductById {
+  product(id: "c2af9adc-d0b8-4d44-871f-cef66f86f7f6") {
+    name
+    description
+    price
+    image
+  }
+}
