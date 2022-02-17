@@ -1,0 +1,23 @@
+{
+  "name": "e-commerce-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "graphql",
+    "nodejs",
+    "typescript",
+    "apollo-server",
+    "application"
+  ],
+  "author": "Glaucia Lemos <Twitter: @glaucia_lemos86",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^3.6.3",
+    "graphql": "^16.3.0"
+  }
+}
