@@ -1,0 +1,18 @@
+{
+  "name": "project-04",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Glaucia Lemos <Twitter: @glaucia_lemos86>",
+  "license": "MIT",
+  "devDependencies": {
+    "prisma": "^3.9.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.9.2"
+  }
+}
