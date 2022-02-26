@@ -133,23 +133,23 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    hello:() => {
+    hello:(parent, args, ctx) => {
       return 'Hi, Developers!'
     },
 
-    products: () => {
+    products: (parent, args, ctx) => {
       return products;
     },
 
     product: (parent, args, ctx) => {
       const { id } = args;
-      return products.find(product => product.id === id);
+      return products.find((product) => product.id === id);
     },
 
     categories: (parent, args, ctx) => categories,
     category: (parent, args, ctx) => {
       const { id } = args;
-      return categories.find((category => category.id === id));
+      return categories.find((category) => category.id === id);
     }
   }
 }
