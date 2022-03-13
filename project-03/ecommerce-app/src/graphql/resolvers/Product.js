@@ -5,11 +5,8 @@
  * author: Glaucia Lemos <Twitter: @glaucia_lemos86>
  */
 
-const { categories } = require('../../data/db');
-
 exports.Product = {
-  category: (parent, args, ctx) => {
-    const categoryId = parent.categoryId;
+  category: ({ categoryId }, args, { categories }) => {
     return categories.find((category) => category.id === categoryId);
   }
 }

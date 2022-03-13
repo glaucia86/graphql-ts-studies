@@ -5,25 +5,21 @@
  * author: Glaucia Lemos <Twitter: @glaucia_lemos86>
  */
 
-const { products, categories } = require('../../data/db');
-
 exports.Query = {
   hello:(parent, args, ctx) => {
     return 'Hi, Developers!'
   },
 
-  products: (parent, args, ctx) => {
+  products: (parent, args, { products }) => {
     return products;
   },
 
-  product: (parent, args, ctx) => {
-    const { id } = args;
+  product: (parent, { id }, { products }) => {
     return products.find((product) => product.id === id);
   },
 
-  categories: (parent, args, ctx) => categories,
-  category: (parent, args, ctx) => {
-    const { id } = args;
+  categories: (parent, args, { categories }) => categories,
+  category: (parent, { id }, { categories }) => {
     return categories.find((category) => category.id === id);
   }
 };
