@@ -5,12 +5,12 @@
  * author: Glaucia Lemos <Twitter: @glaucia_lemos86>
  */
 
-const { ApolloServer, gql } = require('apollo-server');
+const { ApolloServer } = require('apollo-server');
 const { typeDefs } = require('./graphql/typeDefs/schema');
 const { Query } = require("./graphql/resolvers/Query");
 const { Product } = require("./graphql/resolvers/Product");
 const { Category } = require("./graphql/resolvers/Category");
-const { categories, products } = require('./data/db');
+const { categories, products, reviews } = require('./data/db');
 
 const server = new ApolloServer({
   typeDefs,
@@ -21,7 +21,8 @@ const server = new ApolloServer({
   },
   context: {
     categories,
-    products
+    products,
+    reviews
   }
 });
 
