@@ -59,3 +59,17 @@ query GetProductOnSale {
     }
   }
 }
+
+# Get - Filtiring Product Rating
+query FiltringProductRating {
+  products(filter: {
+    onSale: true,
+    avgRating: 3
+  }) {
+    name
+    price
+    reviews {
+      rating
+    }
+  }
+}
