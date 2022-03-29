@@ -15,3 +15,47 @@ query GetProductById {
     image
   }
 }
+
+# Get Product Review by Id
+
+query GetProductReviewById {
+  product(id:
+  "53a0724c-a416-4cac-ae45-bfaedce1f147"
+  ){
+    name
+    description
+    image
+    price
+    reviews {
+      title
+      comment
+      rating
+    }
+  }
+}
+
+# Get Product onSale = true
+
+query GetProductOnSale {
+  products(filter: {
+    onSale: true
+  }) {
+    name
+    price
+    onSale
+  }
+}
+
+# Get Category Product by Id with onSale = true
+
+query GetProductOnSale {
+  category(id: "d914aec0-25b2-4103-9ed8-225d39018d1d") {
+    name
+    products(filter: {
+      onSale: true
+    }) {
+      name
+      onSale
+    }
+  }
+}
