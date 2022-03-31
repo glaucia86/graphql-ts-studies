@@ -18,6 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "apollo-server": "^3.6.3",
-    "graphql": "^16.3.0"
+    "graphql": "^16.3.0",
+    "uuid": "^8.3.2"
   }
 }

@@ -1,5 +1,5 @@
 /**
- * file: src/graphql/typeDefs/schema.js
+ * file: src/graphql/resolvers/Category.js
  * description:
  * date: 02/28/2022
  * author: Glaucia Lemos <Twitter: @glaucia_lemos86>
