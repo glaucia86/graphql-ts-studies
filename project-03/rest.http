@@ -73,3 +73,46 @@ query FiltringProductRating {
     }
   }
 }
+# Mutation - Create a New Category
+
+mutation {
+  addCategory(input: {
+    name: "Office"
+  }) {
+    id
+    name
+  }
+}
+
+# Mutation - Create a New Product
+
+mutation addProduct {
+  addProduct(input: {
+    name: "Fork",
+    image: "img-55",
+    price: 799.99
+    onSale: true,
+    quantity: 3,
+    categoryId: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70",
+    description: "The best Fork you ever seen!"
+  }) {
+    name
+    id
+  }
+}
+
+# Mutation - Create a new Review
+
+mutation addReview {
+  addReview(input: {
+    date: "2022-31-03",
+    title: "The Best Fork Ever!",
+    comment: "I bought an excellent fork here. Highly recommend to everyone!",
+    rating: 5,
+    productId: "f2a2915d-1f91-46d4-8331-6eeaf73d2a2f"
+  }) {
+    title
+    comment
+    rating
+  }
+}
