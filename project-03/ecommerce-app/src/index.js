@@ -11,7 +11,7 @@ const { Query } = require("./graphql/resolvers/Query");
 const { Mutation } = require("./graphql/resolvers/Mutation");
 const { Product } = require("./graphql/resolvers/Product");
 const { Category } = require("./graphql/resolvers/Category");
-const { categories, products, reviews } = require('./data/db');
+const { db } = require('./data/db');
 
 const server = new ApolloServer({
   typeDefs,
@@ -22,9 +22,7 @@ const server = new ApolloServer({
     Mutation
   },
   context: {
-    categories,
-    products,
-    reviews
+    db,
   }
 });
 
