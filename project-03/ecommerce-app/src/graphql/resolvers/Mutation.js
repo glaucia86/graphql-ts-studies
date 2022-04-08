@@ -13,7 +13,7 @@ exports.Mutation = {
 
     const newCategory = {
       id: uuid(),
-      name
+      name,
     };
 
     db.categories.push(newCategory);
@@ -31,7 +31,7 @@ exports.Mutation = {
       price,
       onSale,
       quantity,
-      categoryId
+      categoryId,
     };
 
     db.products.push(newProduct);
@@ -48,11 +48,23 @@ exports.Mutation = {
       title,
       comment,
       rating,
-      productId
+      productId,
     };
 
     db.reviews.push(newReviews);
 
     return newReviews;
-  }
-}
+  },
+  deleteCategory: (parent, { id }, { db }) => {
+    db.categories = db.categories.filter((category) => category.id !== id);
+    db.products = db.products.map((product) => {
+      if (product.categoryId === id)
+        return {
+          ...product,
+          categoryId: null,
+        };
+      else return product;
+    });
+    return true;
+  },
+};
