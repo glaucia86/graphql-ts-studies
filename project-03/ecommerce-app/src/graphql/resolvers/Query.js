@@ -5,38 +5,40 @@
  * author: Glaucia Lemos <Twitter: @glaucia_lemos86>
  */
 
-const { reviews } = require("../../data/db");
+const { reviews } = require('../../data/db');
 
 exports.Query = {
-  hello:(parent, args, ctx) => {
-    return 'Hi, Developers!'
+  hello: (parent, args, ctx) => {
+    return 'Hi, Developers!';
   },
 
   products: (parent, { filter }, { db }) => {
-    let filteredProducts = db.products
+    let filteredProducts = db.products;
 
-    if(filter) {
+    console.log(db.reviews);
+
+    if (filter) {
       const { onSale, avgRating } = filter;
-      if(filter.onSale === true) {
-        filteredProducts = filteredProducts.filter(product => {
-          return product.onSale
+      if (filter.onSale === true) {
+        filteredProducts = filteredProducts.filter((product) => {
+          return product.onSale;
         });
       }
 
-      if([1,2,3,4,5].includes(avgRating)) {
+      if ([1, 2, 3, 4, 5].includes(avgRating)) {
         filteredProducts = filteredProducts.filter((product) => {
           let sumRating = 0;
           let numberOfReviews = 0;
           db.reviews.forEach((review) => {
-            if(review.productId === product.id) {
+            if (review.productId === product.id) {
               sumRating += review.rating;
               numberOfReviews++;
             }
           });
-          const avgProductRating = sumRating/numberOfReviews;
+          const avgProductRating = sumRating / numberOfReviews;
 
           return avgProductRating >= avgRating;
-        })
+        });
       }
     }
 
@@ -48,7 +50,8 @@ exports.Query = {
   },
 
   categories: (parent, args, { db }) => db.categories,
+
   category: (parent, { id }, { db }) => {
     return db.categories.find((category) => category.id === id);
-  }
+  },
 };

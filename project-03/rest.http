@@ -1,12 +1,12 @@
-# Get Products (name, image)
-query Product {
+# GET - Products (name, image)
+query Products {
   products {
     name
     image
   }
 }
 
-# Get Product by Id
+# GET - Product by Id
 query GetProductById {
   product(id: "c2af9adc-d0b8-4d44-871f-cef66f86f7f6") {
     name
@@ -16,8 +16,7 @@ query GetProductById {
   }
 }
 
-# Get Product Review by Id
-
+# GET - Product Review by Id
 query GetProductReviewById {
   product(id:
   "53a0724c-a416-4cac-ae45-bfaedce1f147"
@@ -34,8 +33,7 @@ query GetProductReviewById {
   }
 }
 
-# Get Product onSale = true
-
+# GET - Product onSale = true
 query GetProductOnSale {
   products(filter: {
     onSale: true
@@ -46,9 +44,8 @@ query GetProductOnSale {
   }
 }
 
-# Get Category Product by Id with onSale = true
-
-query GetProductOnSale {
+# GET - Category Product by Id with onSale = true
+query GetProductByIdOnSale {
   category(id: "d914aec0-25b2-4103-9ed8-225d39018d1d") {
     name
     products(filter: {
@@ -60,7 +57,7 @@ query GetProductOnSale {
   }
 }
 
-# Get - Filtiring Product Rating
+# GET - Filtiring Product Rating
 query FiltringProductRating {
   products(filter: {
     onSale: true,
@@ -73,7 +70,21 @@ query FiltringProductRating {
     }
   }
 }
-# Mutation - Create a New Category
+
+# GET - Get Product by Id and Review Comments
+query GetProductByIdAndReviewsComments {
+  products {
+    id
+    name
+    reviews {
+      comment
+    }
+  }
+}
+
+## === MUTATION ===
+
+# POST (Mutation) - Create a New Category
 
 mutation {
   addCategory(input: {
@@ -84,7 +95,7 @@ mutation {
   }
 }
 
-# Mutation - Create a New Product
+# POST (Mutation) - Create a New Product
 
 mutation addProduct {
   addProduct(input: {
@@ -101,7 +112,7 @@ mutation addProduct {
   }
 }
 
-# Mutation - Create a new Review
+# POST (Mutation) - Create a new Review
 
 mutation addReview {
   addReview(input: {
@@ -115,4 +126,9 @@ mutation addReview {
     comment
     rating
   }
+}
+
+# DELETE (Mutation) - Delete Product by Id and Reviews = true
+mutation DeleteProductAndReviews {
+  deleteProduct(id: "53a0724c-a416-4cac-ae45-bfaedce1f147")
 }
