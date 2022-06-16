@@ -82,6 +82,18 @@ query GetProductByIdAndReviewsComments {
   }
 }
 
+# GET - Products by Id and Reviews by Id
+query GetProductsByIdAndReviewsById {
+  products {
+    id
+    name
+    reviews {
+      id
+      comment
+    }
+  }
+}
+
 ## === MUTATION ===
 
 # POST (Mutation) - Create a New Category
@@ -131,4 +143,9 @@ mutation addReview {
 # DELETE (Mutation) - Delete Product by Id and Reviews = true
 mutation DeleteProductAndReviews {
   deleteProduct(id: "53a0724c-a416-4cac-ae45-bfaedce1f147")
+}
+
+# DELETE (Mutation) - Delete Review by Id = true
+mutation DeleteReviewById {
+  deleteReview(id: "b22da5d4-6a4b-4db5-8ec3-acc228c36260")
 }
