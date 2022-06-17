@@ -1,8 +1,33 @@
 # GET - Products (name, image)
-query Products {
+query GetProducts {
   products {
+    id
     name
+    price
+    onSale
+    quantity
+    description
     image
+  }
+}
+
+# GET Product and Reviews (due to relationship btw them)
+query GetProductsAndReviews {
+  products {
+    id
+    name
+    price
+    onSale
+    quantity
+    description
+    image
+    reviews {
+      id
+      date
+      title
+      comment
+      rating
+    }
   }
 }
 
@@ -164,5 +189,35 @@ mutation UpdateCategory {
     name: "Kitchen & Bath"
   }) {
     name
+  }
+}
+
+# UPDATE (Mutation) - Update Product (some fields)
+mutation UpdateProduct {
+  updateProduct(id: "53a0724c-a416-4cac-ae45-bfaedce1f147", input: {
+    name: "Steel Pot",
+    price: 32.44,
+    onSale: true,
+    quantity: 230,
+    description: "Silver steel pot that is perfect for cooking",
+    image: "img-1"
+  }) {
+    name
+    price
+    onSale
+  }
+}
+
+# UPDATE (Mutation) - Update Review (Product Id)
+mutation UpdateReview {
+  updateReview(id: "b22da5d4-6a4b-4db5-8ec3-acc228c36260", input: {
+    date: "2021-01-01",
+    title: "Incredible Product ever",
+    comment: "This is a beautiful product ever!",
+    rating: 4
+  }) {
+    title
+    comment
+    rating
   }
 }
