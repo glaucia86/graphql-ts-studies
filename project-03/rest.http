@@ -94,6 +94,14 @@ query GetProductsByIdAndReviewsById {
   }
 }
 
+# GET - Get Categories
+query GetCategories {
+  categories {
+    id
+    name
+  }
+}
+
 ## === MUTATION ===
 
 # POST (Mutation) - Create a New Category
@@ -148,4 +156,13 @@ mutation DeleteProductAndReviews {
 # DELETE (Mutation) - Delete Review by Id = true
 mutation DeleteReviewById {
   deleteReview(id: "b22da5d4-6a4b-4db5-8ec3-acc228c36260")
+}
+
+# UPDATE (Mutation) - Update Category by Name
+mutation UpdateCategory {
+  updateCategory(id: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70", input: {
+    name: "Kitchen & Bath"
+  }) {
+    name
+  }
 }
