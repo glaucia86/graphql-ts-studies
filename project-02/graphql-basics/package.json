@@ -23,7 +23,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "graphql": "^15.5.0",
-    "npm": "^8.4.1",
+    "npm": "^8.11.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
