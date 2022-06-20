@@ -13,16 +13,33 @@ const typeDefs = gql`
 
   type Group {
     id: ID!
+    featureSet: GroupFeatureSet
+    cars(skip: Int!, take: Int!): [Car!]!
+    name: String!
+    image: Image!
+    description: String!
+  }
+
+  type Image {
+    id: ID!
+    url: String!
+  }
+
+  type GroupFeatureSet {
     features: [GroupFeatures!]!
     applyFeaturesSeperately: Boolean!
-    cars: [Car!]!
-    name: String!
-    imageId: ID!
-    bodyHtml: String!
   }
 
   type GroupFeatures {
-    feature: String!
+    feature: GroupFeatureFields!
+  }
+
+  enum GroupFeatureFields {
+    INCLINE_ENGINE
+    FOUR_CYLINDER_ENGINE
+    TWIN_CYLINDER_ENGINE
+    RED_PAINT
+    BLACK_PAINT
   }
 `;
 
