@@ -11,6 +11,25 @@ const typeDefs = gql`
     make: String!
   }
 
+  type Mutation {
+    groupDelete(groupId: ID!)
+    groupPublish(groupId: ID!)
+    groupUnpublish(groupId: ID!)
+    groupAddCars(groupId: ID!, carId: ID!)
+    groupRemoveCars(groupId: ID!, carId: ID!)
+    groupCreate(
+      name: String!
+      image: ImageInput!
+      description: String!
+      featureSet: GroupFeatureFields
+    )
+    groupUpdate
+  }
+
+  input ImageInput {
+    url: String!
+  }
+
   type Group {
     id: ID!
     featureSet: GroupFeatureSet
