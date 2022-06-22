@@ -7,9 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "nodemon src/index.ts --watch ./**/*.ts --exec ts-node src/index.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "graphql",
+    "nodejs",
+    "typescript",
+    "apollo-server",
+    "application"
+  ],
+  "author": "Glaucia Lemos <Twitter: @glaucia_lemos86",
+  "license": "MIT",
   "dependencies": {
     "apollo-server": "^3.9.0",
     "graphql": "^16.5.0"
