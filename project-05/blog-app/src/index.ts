@@ -5,6 +5,17 @@
  * author: Glaucia Lemos <Twitter: @glaucia_lemos86>
  */
 
-const age: number = 35;
+import { ApolloServer } from 'apollo-server';
+import { typeDefs } from './schema';
+import { Query } from './resolvers';
 
-console.log(age);
+const server = new ApolloServer({
+  typeDefs,
+  resolvers: {
+    Query,
+  }
+});
+
+server.listen().then(({ url }) => {
+  console.log(`Server executing on ${url}`)
+});
