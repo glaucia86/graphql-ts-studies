@@ -11,26 +11,26 @@ datasource db {
 }
 
 model Post {
-  id          Int       @id @default(autoincrement())
-  title       String
-  content     String
-  published   Boolean   @default(false)
-  createdAt   DateTime  @default(now())
-  updateAt    DateTime  @updatedAt
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
 }
 
 model User {
-  id          Int       @id @default(autoincrement())
-  email       String    @unique
-  name        String?
-  password    String
-  createdAt   DateTime  @default(now())
-  updateAt    DateTime  @updatedAt
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  password  String
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
 }
 
 model Profile {
-  id          Int       @id @default(autoincrement())
-  bio         String
-  createdAt   DateTime  @default(now())
-  updateAt    DateTime  @updatedAt
+  id        Int      @id @default(autoincrement())
+  bio       String
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
 }
