@@ -11,26 +11,36 @@ datasource db {
 }
 
 model Post {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   title     String
   content   String
-  published Boolean  @default(false)
-  createdAt DateTime @default(now())
-  updateAt  DateTime @updatedAt
+  published Boolean   @default(false)
+  createdAt DateTime  @default(now())
+  updateAt  DateTime  @updatedAt
+  authorId  Int //foreign key
+  // Relationship 1 to many [One 'User' has many 'Posts']
+  author    User      @relation(fields: [authorId], references: [id])
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
   name      String?
   password  String
-  createdAt DateTime @default(now())
-  updateAt  DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updateAt  DateTime  @updatedAt
+  // Relationship 1 to many [One 'User' has many 'Posts']
+  posts     Post[]
+  // Relationship 1 to 1 [One 'User' has one 'Profile']
+  profile   Profile?
 }
 
 model Profile {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   bio       String
-  createdAt DateTime @default(now())
-  updateAt  DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updateAt  DateTime  @updatedAt
+  userId    Int       @unique //foreign key
+  // Relationship 1 to 1 [One 'User' has one 'Profile']
+  user      User      @relation(fields: [userId], references: [id])
 }
