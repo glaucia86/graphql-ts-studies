@@ -9,6 +9,30 @@ import { gql } from 'apollo-server';
 
 export const typeDefs = gql`
   type Query {
-  hello: String!
-}
-`
+    hello: String!
+  }
+
+  type Post {
+    id: ID!
+    title: String!
+    content: String!
+    published: Boolean!
+    createdAt: String!
+    user: User!
+  }
+
+  type User {
+    id: ID!
+    email: String!
+    name: String!
+    posts: [Post!]!
+    profile: Profile!
+  }
+
+  type Profile {
+    id: ID!
+    bio: String!
+    user: User!
+  }
+
+`;
