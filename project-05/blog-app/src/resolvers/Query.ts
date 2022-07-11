@@ -1,11 +1,23 @@
 /**
  * file: src/resolvers/Query.ts
- * description: file responsible
- * date: 06/24/2022
+ * description: file responsible for executing all 'Queries'
+ * in GraphQL
+ * date: 07/11/2022
  * author: Glaucia Lemos <Twitter: @glaucia_lemos86>
  */
 
+import { Context } from './../index';
 
 export const Query = {
-  hello: () => "Hello World!"
+  posts: async (_: any, __: any, { prisma }: Context) => {
+    const posts = await prisma.post.findMany({
+      orderBy: [
+        {
+          createdAt: "desc"
+        },
+      ],
+    });
+
+    return posts;
+  },
 };

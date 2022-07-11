@@ -1,0 +1,28 @@
+# Queries
+
+# Get All Posts
+query GetAllPosts {
+  posts {
+    id
+    title
+    content
+    published
+    createdAt
+  }
+}
+
+# Mutations
+
+# Mutation - Create Post
+
+mutation CreatePost {
+  postCreate(title: "The best TypeScript Course", content: "It's expensive. But really deserve buy it!") {
+    userErrors {
+      message
+    }
+    post {
+      title
+      content
+    }
+  }
+}
