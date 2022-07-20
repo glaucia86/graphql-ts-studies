@@ -16,7 +16,10 @@ query GetAllPosts {
 # Mutation - Create Post
 
 mutation CreatePost {
-  postCreate(title: "The best TypeScript Course", content: "It's expensive. But really deserve buy it!") {
+  postCreate(post: {
+    title: "Java is so verbose language.",
+    content: "I have to admit that it is."
+  }) {
     userErrors {
       message
     }
@@ -26,6 +29,8 @@ mutation CreatePost {
     }
   }
 }
+
+# Mutation - Update Post
 
 mutation UpdatePost {
   postUpdate(postId: 3, post: {
@@ -37,6 +42,19 @@ mutation UpdatePost {
     post {
       content
       title
+    }
+  }
+}
+
+# Mutation - Delete Post
+mutation DeletePost {
+  postDelete(postId: 5) {
+    userErrors {
+      message
+    }
+    post {
+      title
+      content
     }
   }
 }

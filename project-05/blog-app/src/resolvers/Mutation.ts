@@ -51,7 +51,10 @@ export const Mutation = {
     }
   },
 
-  postUpdate: async (_: any, { post, postId }: { postId: string, post: PostArgs["post"] }, { prisma }: Context
+  postUpdate: async (
+    _: any,
+    { post, postId }: { postId: string, post: PostArgs["post"] },
+    { prisma }: Context
   ): Promise<PostPayloadType> => {
     const { title, content } = post;
 
@@ -101,6 +104,39 @@ export const Mutation = {
           id: Number(postId)
         }
       })
+    }
+  },
+
+  postDelete: async (
+    _: any,
+    { postId }: { postId: string },
+    { prisma }: Context): Promise<PostPayloadType> => {
+    const post = await prisma.post.findUnique({
+      where: {
+        id: Number(postId)
+      }
+    })
+
+    if (!post) {
+      return {
+        userErrors: [
+          {
+            message: 'Post does not exists!'
+          }
+        ],
+        post: null
+      }
+    }
+
+    await prisma.post.delete({
+      where: {
+        id: Number(postId)
+      }
+    })
+
+    return {
+      userErrors: [],
+      post
     }
   }
 };
