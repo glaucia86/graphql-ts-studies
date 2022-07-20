@@ -26,3 +26,17 @@ mutation CreatePost {
     }
   }
 }
+
+mutation UpdatePost {
+  postUpdate(postId: 3, post: {
+    title: "The Best GraphQL course ever!"
+  }) {
+    userErrors {
+      message
+    }
+    post {
+      content
+      title
+    }
+  }
+}
