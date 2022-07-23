@@ -18,13 +18,13 @@
   "author": "Glaucia Lemos <Twitter: @glaucia_lemos86>",
   "license": "MIT",
   "dependencies": {
-    "apollo-datasource": "^0.7.0",
-    "apollo-datasource-rest": "^0.9.3",
-    "apollo-server": "^2.25.3",
+    "apollo-datasource": "^3.3.2",
+    "apollo-datasource-rest": "^3.6.1",
+    "apollo-server": "^3.10.0",
     "lodash": "4.17",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.19"
   },
   "devDependencies": {
-    "eslint": "^8.7.0"
+    "eslint": "^8.20.0"
   }
 }
