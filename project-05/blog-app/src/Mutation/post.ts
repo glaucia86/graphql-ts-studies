@@ -1,13 +1,13 @@
 /**
- * file: src/resolvers/Mutation.ts
- * description: file responsible for executing all the Mutations
- * of the application.
- * date: 07/10/2022
+ * file: src/resolvers/post.ts
+ * description: file responsible for executing all the
+ * post resolvers.
+ * date: 07/25/2022
  * author: Glaucia Lemos <Twitter: @glaucia_lemos86>
  */
 
-import { Post, Prisma } from '@prisma/client';
 import { Context } from '../index';
+import { Post, Prisma } from '@prisma/client';
 
 interface PostArgs {
   post: {
@@ -23,7 +23,7 @@ interface PostPayloadType {
   post: Post | Prisma.Prisma__PostClient<Post> | null
 }
 
-export const Mutation = {
+export const postResolvers = {
   postCreate: async (
     _: any,
     { post }: PostArgs,
@@ -139,4 +139,4 @@ export const Mutation = {
       post
     }
   }
-};
+}
