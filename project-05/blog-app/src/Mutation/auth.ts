@@ -42,6 +42,19 @@ export const authResolvers = {
       }
     }
 
+    const passwordIsValid = validator.isLength(password, {
+      min: 5
+    });
+
+    if (!passwordIsValid) {
+      return {
+        userErrors: [{
+          message: 'The passawrd must be at least 5 characters long!'
+        }],
+        user: null
+      }
+    }
+
     return {
       userErrors: [],
       user: null
