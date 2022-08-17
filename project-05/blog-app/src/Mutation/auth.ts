@@ -55,6 +55,15 @@ export const authResolvers = {
       }
     }
 
+    if (!name || !bio) {
+      return {
+        userErrors: [{
+          message: 'You must provide a name and a bio!'
+        }],
+        user: null
+      }
+    }
+
     return {
       userErrors: [],
       user: null
