@@ -22,7 +22,7 @@
     "@types/validator": "^13.7.5",
     "apollo-server": "^3.10.0",
     "bcryptjs": "^2.4.3",
-    "graphql": "^16.5.0",
+    "graphql": "^16.8.1",
     "prisma": "3.14",
     "ts-node": "^10.9.1",
     "validator": "^13.7.0"
